@@ -9,12 +9,12 @@ fun main(){
         var cycle = 1
         input.forEach { instruction ->
             cycle++
-            if (cycle.isSignalStrengt()) result += cycle * x
+            if (cycle.isSignalStrength()) result += cycle * x
             //println("Cycle " + cycle + " " + input[cursorInput] + " pending " + pendingCycle)
             if (instruction.size > 1) {
                 cycle++
                 x += instruction[1].toInt()
-                if (cycle.isSignalStrengt()) result += cycle * x
+                if (cycle.isSignalStrength()) result += cycle * x
                 //println("Cycle $cycle x:" + input[cursorInput][1] + " value $x")
             }
         }
@@ -38,7 +38,7 @@ fun main(){
 }
 
 
-fun Int.isSignalStrengt(): Boolean = (this == 20 || this ==60 || this ==100 || this==140 || this==180 || this==220)
+fun Int.isSignalStrength(): Boolean = (this == 20 || this ==60 || this ==100 || this==140 || this==180 || this==220)
 fun drawCRTPixel(x:Int, cycle:Int){
     if(cycle % 40 == 0) println()
     if(cycle % 40 in x-1..x+1)
